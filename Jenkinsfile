@@ -7,7 +7,7 @@ pipeline {
         SAMPLE_URL="google.com"
         SSH=credentials('SSH')
     }
-    triggers { cron('* * * * *') }
+    triggers { pollscm('* * * * *') }
     parameters {
             string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 
