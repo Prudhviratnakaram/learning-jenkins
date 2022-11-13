@@ -77,5 +77,3 @@ choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick some
       }
   }
 }
-}
-}
