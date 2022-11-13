@@ -45,6 +45,7 @@ pipeline {
                     steps{
                         echo "PERSON=${PERSON}"
                     }
+                    }
     }
     post{
         always{
