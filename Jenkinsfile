@@ -30,7 +30,7 @@ pipeline {
                 echo "URL = ${SAMPLE_URL}"
                 echo "${SSH}"
                 echo "PERSON=${PERSON}"
-                .sh 'mvn --version'
+                 sh 'mvn --version'
             }
         }
     }
