@@ -36,7 +36,7 @@ pipeline {
         stage('Hello') {
                     input {
                         message "Should we continue?"
-                        ok "Yes, we should."
+                        ok "Yes"
                         submitter "admin"
 
                     }
