@@ -67,7 +67,7 @@ choice(name: 'CHOICE', choices: ['', 'DEV', 'PROD'], description: 'Pick ENV')
          echo 'one'
      }
      }
- }
+
   stage('PROD'){
   when{
      environment name: 'DEPLOY_TO' , value: 'PROD'
