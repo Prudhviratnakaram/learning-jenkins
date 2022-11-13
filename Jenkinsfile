@@ -7,6 +7,9 @@ pipeline {
         SAMPLE_URL="google.com"
         SSH=credentials('SSH')
     }
+    tools{
+    maven 'MAVEN'
+    }
     //triggers { pollSCM('* * * * *') }
     parameters {
             string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
