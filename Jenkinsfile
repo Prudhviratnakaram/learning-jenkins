@@ -7,7 +7,7 @@ pipeline {
         SAMPLE_URL="google.com"
         SSH=credentials('SSH')
     }
-    triggers { pollSCM('* * * * *') }
+    //triggers { pollSCM('* * * * *') }
     parameters {
             string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
 
@@ -27,6 +27,7 @@ pipeline {
                 echo "URL = ${SAMPLE_URL}"
                 echo "${SSH}"
                 echo "PERSON=${PERSON}"
+                .sh 'mvn --version'
             }
         }
     }
