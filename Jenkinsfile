@@ -53,28 +53,53 @@
 //
 // }
 //
+// pipeline {
+// agent any
+// parameters{
+// choice(name: 'CHOICE', choices: ['', 'DEV', 'PROD'], description: 'Pick ENV')
+//  }
+//  stages{
+//  stage('DEV'){
+//  when{
+//     environment name: 'DEPLOY_TO' , value: 'DEV'
+//      }
+//      steps{
+//          echo 'one'
+//      }
+//      }
+//
+//   stage('PROD'){
+//   when{
+//      environment name: 'DEPLOY_TO' , value: 'PROD'
+//       }
+//       steps{
+//           echo 'two'
+//       }
+//       }
+//   }
+// }
 pipeline {
-agent any
-parameters{
-choice(name: 'CHOICE', choices: ['', 'DEV', 'PROD'], description: 'Pick ENV')
- }
- stages{
- stage('DEV'){
- when{
-    environment name: 'DEPLOY_TO' , value: 'DEV'
-     }
-     steps{
-         echo 'one'
-     }
-     }
+ agent any
 
-  stage('PROD'){
-  when{
-     environment name: 'DEPLOY_TO' , value: 'PROD'
-      }
-      steps{
-          echo 'two'
-      }
-      }
+  parameters {
+    booleanParam(name: 'DEPLOY', defaultValue: true, description: 'DEPLOY ?')
   }
-}
+
+  stages {
+
+    stage('DEV') {
+      when {
+        expression {
+          return params.DEPLOY
+        }
+
+      }
+      steps {
+        echo 'One'
+      }
+    }
+
+
+  }
+//
+//}
