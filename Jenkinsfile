@@ -78,28 +78,63 @@
 //       }
 //   }
 // }
-pipeline {
- agent any
-
-  parameters {
-    booleanParam(name: 'DEPLOY', defaultValue: true, description: 'DEPLOY ?')
-  }
-
-  stages {
-
-    stage('DEV') {
-      when {
-        expression {
-          return params.DEPLOY
-        }
-
-      }
-      steps {
-        echo 'One'
-      }
-    }
-
-}
-  }
+// pipeline {
+//  agent any
+//
+//   parameters {
+//     booleanParam(name: 'DEPLOY', defaultValue: true, description: 'DEPLOY ?')
+//   }
+//
+//   stages {
+//
+//     stage('DEV') {
+//       when {
+//         expression {
+//           return params.DEPLOY
+//         }
+//
+//       }
+//       steps {
+//         echo 'One'
+//       }
+//     }
+//
+// }
+//   }
 //
 //}
+pipeline {
+  agent any
+
+
+
+   stages {
+
+     stage('Parallel stages') {
+       parallel {
+         stage('stage1') {
+         steps {
+           echo 'One'
+         }
+          stage('stage2') {
+                  steps {
+                    echo 'One'
+                  }
+           stage('stage3') {
+                   steps {
+                     echo 'One'
+            }
+             stage('stage4') {
+                     steps {
+                       echo 'One'
+                 }
+
+         }
+
+
+
+     }
+
+ }
+   }
+   }
