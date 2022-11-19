@@ -106,38 +106,46 @@
 pipeline {
   agent any
 
+  stages {
+
+    stage('Parallel Stages') {
+      parallel {
+        stage('Stage1') {
+          steps {
+            echo 'one'
+            sh 'sleep 10'
+          }
+        }
+        stage('Stage2') {
+          steps {
+            echo 'one'
+          }
+        }
+        stage('Stage3') {
+          steps {
+            echo 'one'
+          }
+        }
+        stage('Stage4') {
+          steps {
+            echo 'one'
+          }
+        }
+      }
+    }
+
+    stage('Two') {
+      steps {
+        echo 'two'
+      }
+    }
+    stage('Three') {
+      steps {
+        echo 'three'
+      }
+    }
 
 
-   stages {
+  }
 
-     stage('Parallel stages') {
-       parallel {
-         stage('stage1') {
-         steps {
-           echo 'One'
-         }
-          stage('stage2') {
-                  steps {
-                    echo 'One'
-                  }
-           stage('stage3') {
-                   steps {
-                     echo 'One'
-            }
-             stage('stage4') {
-                     steps {
-                       echo 'One'
-                 }
-
-         }
-
-
-
-     }
-
- }
-   }
-}
-}
-}
 }
